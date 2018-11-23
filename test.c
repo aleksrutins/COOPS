@@ -5,8 +5,8 @@
 class(String)
 	const char *cString;
 	expectMethod(struct classType(String), fromCString, (const char *str))
-	expectMethod(struct classType(String), concat, (struct classType(String) str, struct classType(String) otherStr));
-	expectMethod(struct classType(String), concatCStrings, (const char *str1, const char *str2))
+	// expectMethod(struct classType(String), concat, (struct classType(String) str, struct classType(String) otherStr));
+	// expectMethod(struct classType(String), concatCStrings, (const char *str1, const char *str2))
 endClass(String)
 class(Tester)
 	classType(String) msg;
@@ -27,20 +27,20 @@ void main(int argc, const char **argv) {
 		newStr.cString = str;
 		return newStr;
 	endMethod(String, fromCString)
-	// Method String::concat(String, String)
-	method(String, classType(String), concat, (classType(String) str, classType(String) otherStr))
-		classType(String) newStr;
-		newStr.cString = str.cString;
-		strcat(newStr.cString, otherStr.cString);
-		return newStr;
-	endMethod(String, concat)
-	// Method String.concatCStrings(const char *, const char *)
-	method(String, classType(String), concatCStrings, (const char *s1, const char *s2))
-		char * restrict resultStr;
-		strcat(resultStr, s1);
-		strcat(resultStr, s2);
-		return String.fromCString((const char *)resultStr);
-	endMethod(String, concatCStrings)
+	// // Method String::concat(String, String)
+	// method(String, classType(String), concat, (classType(String) str, classType(String) otherStr))
+	// 	classType(String) newStr;
+	// 	newStr.cString = str.cString;
+	// 	strcat(newStr.cString, otherStr.cString);
+	// 	return newStr;
+	// endMethod(String, concat)
+	// // Method String.concatCStrings(const char *, const char *)
+	// method(String, classType(String), concatCStrings, (const char *s1, const char *s2))
+	// 	char * restrict resultStr;
+	// 	strcat(resultStr, s1);
+	// 	strcat(resultStr, s2);
+	// 	return String.fromCString((const char *)resultStr);
+	// endMethod(String, concatCStrings)
 	// Method Tester::test()
 	method(Tester, void, test, ())
 		puts(Tester.msg.cString);
