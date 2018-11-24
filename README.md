@@ -1,10 +1,10 @@
-<style>
+<!-- <style>
     table, tr, td {
         border: 1px solid;
     }
     td.param {font-family: monospace;}
     td.status {font-style: italic;}
-</style>
+</style> -->
 # COOPS
 ## C Object-Oriented Programming Library
 Coops introduces classes and code-as-data ideas into C using preprocessor macros.
